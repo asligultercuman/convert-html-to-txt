@@ -1,0 +1,2875 @@
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/code.css">
+<link rel="shortcut icon" type="image/svg" href="/assets/sawtooth_symbol.svg">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Creating a Sawtooth Test Network</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Creating a Sawtooth Test Network" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://sawtooth.splinter.dev/docs/1.2/app_developers_guide/creating_sawtooth_network.html" />
+<meta property="og:url" content="https://sawtooth.splinter.dev/docs/1.2/app_developers_guide/creating_sawtooth_network.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Creating a Sawtooth Test Network" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Creating a Sawtooth Test Network","url":"https://sawtooth.splinter.dev/docs/1.2/app_developers_guide/creating_sawtooth_network.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    </head>
+    <body>
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<header id="header" class="navbar navbar-expand flex-column flex-md-row">
+    <a class="navbar-brand" href="/"><img src="/assets/sawtooth_logo_lightblue.svg" height="36"></a>
+    <div class="navbar-nav-scroll ml-md-auto">
+        <ul class="navbar-nav flex-row">
+<li class="nav-item">
+            
+            <a class="nav-link" href="/releases/1.2/"><span>Releases</span></a>
+        </li>
+<li class="nav-item">
+            
+            <a class="nav-link active" href="/docs/1.2/"><span>Documentation</span></a>
+        </li>
+<li class="nav-item">
+            
+            <a class="nav-link" href="/faq/"><span>FAQ</span></a>
+        </li>
+<li class="nav-item">
+            
+            <a class="nav-link" href="/community/"><span>Community</span></a>
+        </li>
+<li class="nav-item">
+            
+            <a class="nav-link" href="/search/"><span><img src="/assets/search.svg" height="16"></span></a>
+        </li>
+</ul>
+    </div>
+</header>
+
+        <div class="container-fluid content-wrapper">
+            <div class="row">
+                <div id="left-sidebar-col" class="col-md-3 col-xl-2 sidebar-col">
+                    <div id="left-sidebar" class="sidebar">
+<!--
+  Copyright 2018-2022 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<button id="left-sidebar-links-toggle" class="d-md-none" type="button" data-toggle="collapse" data-target="#left-sidebar-links">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewbox="0 0 30 30" role="img" focusable="false">
+        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
+    </svg>
+</button>
+
+<div class="dropdown version-dropdown">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        v1.2
+    </a>
+    <div class="dropdown-menu">
+        <div class="dropdown-header">Stable</div>
+        <a class="dropdown-item" href="/docs/1.2/">
+            Latest (v1.2)
+        </a>
+        <a class="dropdown-item" href="/docs/1.1/">v1.1</a>
+        <a class="dropdown-item" href="/docs/1.0/">v1.0</a>
+    </div>
+</div>
+<div id="left-sidebar-links" class="collapse">
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Getting Started</div>
+        <a href="/docs/1.2/">Introduction</a>
+        <a href="/docs/1.2/glossary.html">Glossary</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Application Developer's Guide</div>
+        <a href="/docs/1.2/app_developers_guide/">Overview</a>
+        <a href="/docs/1.2/app_developers_guide/overview.html">Transaction Family Overview</a>
+        <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html">Setting Up a Sawtooth Node for Testing</a>
+        <a href="/docs/1.2/app_developers_guide/creating_sawtooth_network.html">Creating a Sawtooth Test Network</a>
+        <a href="/docs/1.2/app_developers_guide/intro_xo_transaction_family.html">Playing with the XO Transaction Family</a>
+        <a href="/docs/1.2/app_developers_guide/using_the_sdks.html">Summary of Available SDKs</a>
+        <a href="/docs/1.2/app_developers_guide/python_sdk.html">Using the Python SDK</a>
+        <a href="/docs/1.2/app_developers_guide/rust_sdk.html">Using the Rust SDK</a>
+        <a href="/docs/1.2/app_developers_guide/address_and_namespace.html">Address and Namespace Design</a>
+        <a href="/docs/1.2/app_developers_guide/namespace_restriction.html">Namespace Restriction</a>
+        <a href="/docs/1.2/app_developers_guide/event_subscriptions.html">Subscribing to Events</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Architecture Guide</div>
+        <a href="/docs/1.2/architecture/">Overview</a>
+        <a href="/docs/1.2/architecture/global_state.html">Global State</a>
+        <a href="/docs/1.2/architecture/transactions_and_batches.html">Transactions and Batches</a>
+        <a href="/docs/1.2/architecture/journal.html">Journal</a>
+        <a href="/docs/1.2/architecture/transaction_scheduling.html">Transaction Scheduling</a>
+        <a href="/docs/1.2/architecture/rest_api.html">REST API</a>
+        <a href="/docs/1.2/architecture/validator_network.html">Sawtooth Network</a>
+        <a href="/docs/1.2/architecture/permissioning_requirement.html">Permissioning Design</a>
+        <a href="/docs/1.2/architecture/injecting_batches_block_validation_rules.html">Injecting Batches and On-Chain Block Validation Rules</a>
+        <a href="/docs/1.2/architecture/events_and_transactions_receipts.html">Events and Transaction Receipts</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Transaction Family Specifications</div>
+        <a href="/docs/1.2/transaction_family_specifications/">Overview</a>
+        <a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings</a>
+        <a href="/docs/1.2/transaction_family_specifications/identity_transaction_family.html">Identity</a>
+        <a href="/docs/1.2/transaction_family_specifications/blockinfo_transaction_family.html">BlockInfo</a>
+        <a href="/docs/1.2/transaction_family_specifications/integerkey_transaction_family.html">IntegerKey</a>
+        <a href="/docs/1.2/transaction_family_specifications/xo_transaction_family.html">XO</a>
+        <a href="/docs/1.2/transaction_family_specifications/smallbank_transaction_family.html">Smallbank</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">System Administrator's Guide</div>
+        <a href="/docs/1.2/sysadmin_guide/setting_up_sawtooth_network.html">Setting Up a Sawtooth Network</a>
+        <a href="/docs/1.2/sysadmin_guide/setting_allowed_txns.html">Setting the Allowed Transaction Types (Optional)</a>
+        <a href="/docs/1.2/sysadmin_guide/adding_authorized_users.html">Adding Authorized Users for Settings Proposals</a>
+        <a href="/docs/1.2/sysadmin_guide/rest_auth_proxy.html">Using Proxy Server to Authorize the REST API</a>
+        <a href="/docs/1.2/sysadmin_guide/configuring_permissions.html">Configuring Validator and Transactor Permissions</a>
+        <a href="/docs/1.2/sysadmin_guide/log_configuration.html">Configuring Logging</a>
+        <a href="/docs/1.2/sysadmin_guide/grafana_configuration.html">Using Grafana to Display Sawtooth Metrics</a>
+        <a href="/docs/1.2/sysadmin_guide/about_dynamic_consensus.html">About Dynamic Consensus</a>
+        <a href="/docs/1.2/sysadmin_guide/pbft_adding_removing_node.html">Adding or Removing a PBFT Node</a>
+        <a href="/docs/1.2/sysadmin_guide/configuring_sawtooth.html">About Sawtooth Configuration Files</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">SDK and API References</div>
+        <a href="/docs/1.2/sdks/python.html">Python</a>
+        <a href="/docs/1.2/sdks/rust.html">Rust</a>
+        <a href="/docs/1.2/rest_api/">REST API Reference</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">CLI Command Reference</div>
+        <a href="/docs/1.2/cli/sawtooth.html">sawtooth</a>
+        <a href="/docs/1.2/cli/sawtooth-validator.html">sawtooth-validator</a>
+        <a href="/docs/1.2/cli/sawtooth-rest-api.html">sawtooth-rest-api</a>
+        <a href="/docs/1.2/cli/sawadm.html">sawadm</a>
+        <a href="/docs/1.2/cli/sawnet.html">sawnet</a>
+        <a href="/docs/1.2/cli/sawset.html">sawset</a>
+        <a href="/docs/1.2/cli/identity-tp.html">identity-tp</a>
+        <a href="/docs/1.2/cli/intkey.html">intkey</a>
+        <a href="/docs/1.2/cli/settings-tp.html">settings-tp</a>
+        <a href="/docs/1.2/cli/xo.html">xo</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">PBFT</div>
+        <a href="/docs/1.2/pbft/introduction-to-sawtooth-pbft.html">Introduction</a>
+        <a href="/docs/1.2/pbft/using-pbft-consensus.html">Using PBFT Consensus</a>
+        <a href="/docs/1.2/pbft/architecture.html">PBFT Architecture</a>
+        <a href="/docs/1.2/pbft/configuring-pbft.html">Configuring PBFT</a>
+        <a href="/docs/1.2/pbft/installing-and-running-pbft.html">Installing and Testing PBFT</a>
+        <a href="/docs/1.2/pbft/glossary.html">Glossary</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Sabre</div>
+        <a href="/docs/1.2/sabre/sabre_transaction_family.html">Sabre Transaction Family</a>
+        <a href="/docs/1.2/sabre/application_developer_guide.html">Sabre Application Developer's Guide</a>
+        <a href="/docs/1.2/sabre/sabre_cli.html">Sabre CLI Reference</a>
+        <a href="/docs/1.2/sabre/smart_permissions.html">Smart Permissions</a>
+        <a href="/docs/1.2/sabre/version_compatibility.html">Sabre and Sawtooth Version Compatibility</a>
+    </div>
+    <div class="left-sidebar-group">
+        <div class="left-sidebar-header">Conversion</div>
+        <a href="/docs/1.2/conversion_status.html">Status</a>
+    </div>
+</div>
+
+                    </div>
+                </div>
+                <main id="main" class="col-md-9 col-xl-8 offset-md-3 offset-xl-2" role="main">
+                    <div class="content" id="main-content">
+                        
+                        
+                        <h1 id="creating-a-sawtooth-test-network">Creating a Sawtooth Test Network</h1>
+
+<p>This section describes how to create a Sawtooth network for an
+application development environment. Each node is similar to the
+single-node environment described earlier in this guide in <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html">Installing
+Sawtooth</a>,
+but the network uses a consensus algorithm that is
+appropriate for a Sawtooth network (instead of Devmode consensus). For
+more information, see <a href="#about-sawtooth-networks">About Sawtooth Networks</a></p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For a single-node test environment, see
+<a href="/docs/1.2/app_developers_guide/installing_sawtooth.html">Installing
+Sawtooth</a></p>
+</blockquote>
+
+<p>Use the procedures in this section to create a Sawtooth test network
+using prebuilt <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a> containers, a
+<a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">Kubernetes</a> cluster inside a virtual machine on
+your computer, or a native <a href="https://www.ubuntu.com/" target="_blank" rel="noopener noreferrer">Ubuntu</a>
+installation.</p>
+
+<p>To get started, read <a href="#about-sawtooth-networks">About Sawtooth
+Networks</a>,
+then choose the guide for the platform of your choice.</p>
+
+<h2 id="about-sawtooth-networks">About Sawtooth Networks</h2>
+
+<p>In a Sawtooth network, each host system (physical computer, virtual
+machine, set of Docker containers, or Kubernetes pod) is a Sawtooth node
+that runs one validator, an optional REST API, a consensus engine, and a
+set of transaction processors.</p>
+
+<p>The first node creates the genesis block, which specifies the initial on-chain
+settings for the network. The other nodes access those settings when they join
+the network.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>The example environment includes the Sawtooth REST API on all validator
+nodes. However, an application could provide a custom REST API (or no
+REST API).</p>
+
+  <p>This environment also runs a consensus engine on each node. The
+consensus engine could run on a separate system, as long as it is
+reachable from the Sawtooth node. This guide does not describe how to
+set up a consensus engine on a different system.</p>
+</blockquote>
+
+<p>A Sawtooth network has the following requirements:</p>
+
+<ul>
+  <li>Each node must run the same consensus engine.
+The procedures in this guide show you how to configure
+PBFT or PoET consensus. For more information, see <a href="/docs/1.2/sysadmin_guide/about_dynamic_consensus.html">About Dynamic
+Consensus</a>.</li>
+  <li>Each node must run the same set of transaction processors as all
+other nodes in the network.</li>
+  <li>Each node must advertise a routable address. The Docker and
+Kubernetes platforms provide preconfigured settings. For the Ubuntu
+platform, you must configure network settings before starting the
+validator.</li>
+  <li>The authorization type must be the same on all nodes: either <code class="language-plaintext highlighter-rouge">trust</code>
+(default) or <code class="language-plaintext highlighter-rouge">challenge</code>. This application development environment
+uses <code class="language-plaintext highlighter-rouge">trust</code> authorization.</li>
+  <li>The first node on the network must create the genesis block, which includes
+the on-chain configuration settings that will be available to the other
+nodes when they join the network.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>The first Sawtooth node on the network has no special meaning, other
+than being the node that created the genesis block. Sawtooth has no
+concept of a "head node" or "master node". Once multiple nodes are
+up and running, each node has the same genesis block and treats all
+other nodes as peers.</p>
+</blockquote>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+<h2 id="using-docker-for-a-sawtooth-test-network">Using Docker for a Sawtooth Test Network</h2>
+
+<p>This procedure describes how to use Docker to create a network of five
+Sawtooth nodes for an application development environment. Each node is
+a set of Docker containers that runs a validator and related Sawtooth
+components.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For a single-node environment, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#docker">Installing
+Sawtooth</a></p>
+</blockquote>
+
+<p>This procedure guides you through the following tasks:</p>
+
+<blockquote>
+  <ul>
+    <li>Downloading the Sawtooth Docker Compose file</li>
+    <li>Starting the Sawtooth network with docker-compose</li>
+    <li>Checking process status</li>
+    <li>Configuring the allowed transaction types (optional)</li>
+    <li>Connecting to the Sawtooth shell container and confirming network
+functionality</li>
+    <li>Stopping Sawtooth and resetting the Docker environment</li>
+  </ul>
+</blockquote>
+
+<h1 id="about-sawtooth-nw-env-docker-label">About the Docker Sawtooth Network Environment</h1>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+<p>This test environment is a network of five Sawtooth nodes.</p>
+
+<p><img alt="Appdev Environment Multi-Node" src="/images/1.2/appdev-environment-multi-node.svg"></p>
+
+<p>Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:</p>
+
+<ul>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings</a>
+(<code class="language-plaintext highlighter-rouge">settings-tp</code>): Handles Sawtooth's on-chain
+configuration settings. The Settings transaction processor (or an
+equivalent) is required for all Sawtooth networks.</li>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/integerkey_transaction_family.html">IntegerKey</a>
+(<code class="language-plaintext highlighter-rouge">intkey-tp-python</code>): Demonstrates basic
+Sawtooth functionality. The associated <code class="language-plaintext highlighter-rouge">intkey</code> client includes shell
+commands to perform integer-based transactions.</li>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/xo_transaction_family.html">XO</a>
+(<code class="language-plaintext highlighter-rouge">sawtooth-xo-tp-python</code>): Simple application for playing
+a game of tic-tac-toe on the blockchain. The associated <code class="language-plaintext highlighter-rouge">xo</code> client
+provides shell commands to define players and play a game. XO is
+described in a later section,
+<a href="/docs/1.2/app_developers_guide/intro_xo_transaction_family.html">Intro XO Transaction
+Family</a>
+</li>
+  <li>(PoET only)
+<a href="/docs/1.2/transaction_family_specifications/validator_registry_transaction_family.html">PoET Validator Registry</a>
+(<code class="language-plaintext highlighter-rouge">poet-validator-registry-tp</code>): Configures PoET consensus and handles a
+network with multiple nodes.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Each node in a Sawtooth network must run the same set of transaction
+processors.</p>
+</blockquote>
+
+<p>Like the <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#docker">single-node test environment
+docker</a>,
+this environment uses parallel transaction processing and
+static peering. However, it uses a different consensus algorithm
+(Devmode consensus is not recommended for a network). You can choose
+either PBFT or PoET consensus.</p>
+
+<ul>
+  <li>
+    <p>PBFT consensus provides a voting-based consensus algorithm with Byzantine
+fault tolerance (BFT) that has finality (does not fork).</p>
+  </li>
+  <li>
+    <p>PoET consensus provides a leader-election lottery system that can fork. This
+network uses PoET simulator consensus, which is also called PoET CFT]
+because it is crash fault tolerant.</p>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>The other type of PoET consensus, PoET-SGX, relies on Intel Software
+Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
+CFT provides the same consensus algorithm on an SGX simulator.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>The first node creates the genesis block, which specifies
+the on-chain settings for the network configuration. The other nodes
+access those settings when they join the network.</p>
+
+<h3 id="prereqs-multi-docker-label">Prerequisites</h3>
+
+<ul>
+  <li>This application development environment requires Docker Engine and
+Docker Compose.
+    <ul>
+      <li>Windows: Install the latest version of <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener noreferrer">Docker Engine for
+Windows</a>
+(also installs Docker Compose).</li>
+      <li>macOS: Install the latest version of <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="noopener noreferrer">Docker Engine for
+macOS</a> (also
+installs Docker Compose).</li>
+      <li>Linux: Install the latest versions of <a href="https://docs.docker.com/engine/installation/linux/ubuntu" target="_blank" rel="noopener noreferrer">Docker
+Engine</a>
+and <a href="https://docs.docker.com/compose/install/#install-compose" target="_blank" rel="noopener noreferrer">Docker
+Compose</a>.
+Then follow <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user" target="_blank" rel="noopener noreferrer">Post-Install
+steps</a>.</li>
+    </ul>
+  </li>
+  <li>If you created a <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#docker">single-node Docker environment
+docker</a>,
+that is still running, shut it down and delete the
+existing blockchain data and logs. For more information, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#stop-the-sawtooth-docker-environment">Stop the
+Sawtooth Docker Environment</a>
+</li>
+</ul>
+
+<h3 id="step-1-download-the-docker-compose-file">Step 1: Download the Docker Compose File</h3>
+
+<p>Download the Docker Compose file for a multiple-node network.</p>
+
+<ul>
+  <li>For PBFT, download
+<a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/compose/sawtooth-default-pbft.yaml" target="_blank" rel="noopener noreferrer">sawtooth-default-pbft.yaml</a>
+</li>
+  <li>For PoET, download
+<a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/compose/sawtooth-default-poet.yaml" target="_blank" rel="noopener noreferrer">sawtooth-default-poet.yaml</a>
+</li>
+</ul>
+
+<h3 id="step-2-start-the-sawtooth-network">Step 2: Start the Sawtooth Network</h3>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>The Docker Compose file for Sawtooth handles environment setup steps
+such as generating keys and creating a genesis block. To learn how the
+typical network startup process works, see <a href="#using-ubuntu-for-a-sawtooth-test-network">Using Ubuntu for a
+Sawtooth Test Network</a></p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Open a terminal window.</p>
+  </li>
+  <li>
+    <p>Change to the directory where you saved the Docker Compose file.</p>
+  </li>
+  <li>
+    <p>Start the Sawtooth network.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker-compose <span class="nt">-f</span> sawtooth-default-pbft.yaml up
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker-compose <span class="nt">-f</span> sawtooth-default-poet.yaml up
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>This Compose file creates five Sawtooth nodes named <code class="language-plaintext highlighter-rouge">validator-#</code>
+(numbered from 0 to 4). Note the container names for the Sawtooth
+components on each node:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">validator-0</code>:</p>
+
+    <blockquote>
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-validator-default-0</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-rest-api-default-0</code></li>
+        <li>
+<code class="language-plaintext highlighter-rouge">sawtooth-pbft-engine-default-0</code> or <code class="language-plaintext highlighter-rouge">sawtooth-poet-engine-0</code>
+</li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-settings-tp-default-0</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-intkey-tp-python-default-0</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-xo-tp-python-default-0</code></li>
+        <li>(PoET only) <code class="language-plaintext highlighter-rouge">sawtooth-poet-validator-registry-tp-0</code>
+</li>
+      </ul>
+    </blockquote>
+
+    <p><code class="language-plaintext highlighter-rouge">validator-1</code>:</p>
+
+    <blockquote>
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-validator-default-1</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-rest-api-default-1</code></li>
+        <li>
+<code class="language-plaintext highlighter-rouge">sawtooth-pbft-engine-default-1</code> or <code class="language-plaintext highlighter-rouge">sawtooth-poet-engine-1</code>
+</li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-settings-tp-default-1</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-intkey-tp-python-default-1</code></li>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-xo-tp-python-default-1</code></li>
+        <li>(PoET only) <code class="language-plaintext highlighter-rouge">sawtooth-poet-validator-registry-tp-1</code>
+</li>
+      </ul>
+    </blockquote>
+
+    <p>... and so on.</p>
+  </li>
+  <li>
+    <p>Note that there is only one shell container for this Docker
+environment:</p>
+
+    <blockquote>
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">sawtooth-shell-default</code></li>
+      </ul>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="step-3-check-the-rest-api-process">Step 3: Check the REST API Process</h3>
+
+<p>Use these commands on one or more nodes to confirm that the REST API is
+running.</p>
+
+<ol>
+  <li>
+    <p>Connect to the REST API container on a node, such as
+<code class="language-plaintext highlighter-rouge">sawtooth-poet-rest-api-default-0</code>.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> sawtooth-rest-api-default-0 bash
+<span class="gp">root@b1adcfe0#</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use the following command to verify that this component is running.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@b1adcfe0#</span><span class="w"> </span>ps <span class="nt">--pid</span> 1 fw
+<span class="go">PID TTY      STAT   TIME COMMAND
+  1 ?        Ssl    0:00 /usr/bin/python3 /usr/bin/sawtooth-rest-api
+  --connect tcp://validator-0:4004 --bind rest-api-0:8008
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="confirm-nw-funct-docker-label">Step 4: Confirm Network Functionality</h3>
+
+<ol>
+  <li>
+    <p>Connect to the shell container.</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> sawtooth-shell-default bash
+<span class="gp">root@0e0fdc1ab#</span><span class="w">
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>To check whether peering has occurred on the network, submit a peers
+query to the REST API on the first node. This command specifies the
+container name and port for the first node's REST API.</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@0e0fdc1ab#</span><span class="w"> </span>curl http://sawtooth-rest-api-default-0:8008/peers
+</code></pre></div>      </div>
+    </blockquote>
+
+    <p>If this query returns a 503 error, the nodes have not yet peered
+with the Sawtooth network. Repeat the query until you see output
+that resembles the following example:</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">{
+  "data": [
+    "tcp://validator-4:8800",
+    "tcp://validator-3:8800",
+</span><span class="c">    ...
+</span><span class="go">    "tcp://validator-2:8800",
+    "tcp://validator-1:8800"
+  ],
+  "link": "http://sawtooth-rest-api-default-0:8008/peers"
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>(Optional) You can run the following Sawtooth commands to show the
+other nodes on the network.</p>
+
+    <p>a.  Run <code class="language-plaintext highlighter-rouge">sawtooth peer list</code> to show the peers of a particular node.
+    For example, the following command specifies the REST API on the
+    first node, so it displays the first node's peers.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+root@0e0fdc1ab# sawtooth peer list --url http://sawtooth-rest-api-default-0:8008
+tcp://validator-1:8800,tcp://validator-1:8800,tcp://validator-2:8800,tcp://validator-3:8800
+```
+</code></pre></div>    </div>
+
+    <p>b.  Run <code class="language-plaintext highlighter-rouge">sawnet peers list</code> to display a complete graph of peers on
+    the network (available in Sawtooth release 1.1 and later).</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+root@0e0fdc1ab# sawnet peers list http://sawtooth-rest-api-default-0:8008
+{
+"tcp://validator-0:8800": [
+"tcp://validator-1:8800",
+"tcp://validator-1:8800",
+"tcp://validator-2:8800",
+"tcp://validator-3:8800"
+]
+}
+```
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Submit a transaction to the REST API on the first node. This example
+sets a key named <code class="language-plaintext highlighter-rouge">MyKey</code> to the value 999.</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@0e0fdc1ab#</span><span class="w"> </span>intkey <span class="nb">set</span> <span class="nt">--url</span> http://sawtooth-rest-api-default-0:8008 MyKey 999
+</code></pre></div>      </div>
+
+      <p>The output should resemble this example:</p>
+
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">{
+  "link": "http://sawtooth-rest-api-default-0:8008/batch_statuses?id=dacefc7c9fe2c8510803f8340...
+}
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>Watch for this transaction to appear on a different node. The
+following command requests the value of <code class="language-plaintext highlighter-rouge">MyKey</code> from the REST API on
+the second node.</p>
+
+    <p>You can run this command from the first node's shell container by
+specifying the URL of the other node's REST API, as in this
+example.</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@0e0fdc1ab#</span><span class="w"> </span>intkey show <span class="nt">--url</span> http://sawtooth-rest-api-default-1:8008 MyKey
+</code></pre></div>      </div>
+
+      <p>The output should show the key name and current value:</p>
+
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">MyKey: 999
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>One may create a <a href="../sysadmin_guide/configuring_sawtooth#sawtooth-cli-configuration-file"><code class="language-plaintext highlighter-rouge">cli.toml</code> file</a>
+(and perhaps <a href="../sysadmin_guide/configuring_sawtooth#path-configuration-file">set <code class="language-plaintext highlighter-rouge">SAWTOOTH_HOME</code></a>)
+to set a new default URL for some of the CLI commands, like
+<code class="language-plaintext highlighter-rouge">sawtooth peer list</code>. Others, like <code class="language-plaintext highlighter-rouge">intkey</code>, may still need a <code class="language-plaintext highlighter-rouge">--url</code> to be given.</p>
+</blockquote>
+
+<h3 id="configure-txn-procs-docker-label">Step 5. Configure the Allowed Transaction Types (Optional)</h3>
+
+<p>By default, a validator accepts transactions from any transaction
+processor. However, Sawtooth allows you to limit the types of
+transactions that can be submitted.</p>
+
+<p>In this step, you will configure the Sawtooth network to accept
+transactions only from the transaction processors running in the example
+environment. Transaction-type restrictions are an on-chain setting, so
+this configuration change is made on one node, then applied to all other
+nodes.</p>
+
+<p>The <a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings transaction processor</a>
+handles on-chain configuration settings. You will use the
+<code class="language-plaintext highlighter-rouge">sawset</code> command to create and submit a batch of transactions containing
+the configuration change.</p>
+
+<blockquote>
+  <p>Important</p>
+
+  <p>You <strong>must</strong> run this procedure from the first validator container,
+because the example Docker Compose file uses the first validator's key
+to create and sign the genesis block. (At this point, only the key used
+to create the genesis block can change on-chain settings.) For more
+information, see <a href="/docs/1.2/sysadmin_guide/adding_authorized_users.html">Add Authorized
+Users</a></p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Connect to the first validator container
+(<code class="language-plaintext highlighter-rouge">sawtooth-validator-default-0</code>). The next command requires the
+validator key that was generated in that container.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> sawtooth-validator-default-0 bash
+<span class="gp">root@c0c0ab33#</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the following command from the validator container to specify
+the allowed transaction families.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@c0c0ab33#</span><span class="w"> </span>sawset proposal create <span class="nt">--url</span> http://sawtooth-rest-api-default-0:8008 <span class="nt">--key</span> /etc/sawtooth/keys/validator.priv <span class="se">\</span>
+<span class="go">sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}]'
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@c0c0ab33#</span><span class="w"> </span>sawset proposal create <span class="nt">--url</span> http://sawtooth-rest-api-default-0:8008 <span class="nt">--key</span> /etc/sawtooth/keys/validator.priv <span class="se">\</span>
+<span class="go">sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p>This command sets <code class="language-plaintext highlighter-rouge">sawtooth.validator.transaction_families</code> to a
+JSON array that specifies the family name and version of each
+allowed transaction processor (defined in the transaction header of
+each family's <a href="/docs/1.2/transaction_family_specifications/">transaction family
+specification</a>).</p>
+  </li>
+  <li>
+    <p>After this command runs, a <code class="language-plaintext highlighter-rouge">TP_PROCESS_REQUEST</code> message appears in
+the docker-compose output.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="c">.
+.
+.
+</span><span class="go">sawtooth-settings-tp-default-0  | INFO  | settings_tp::handler | Setting "sawtooth.validator.transaction_families" changed to "[{\"family\": \"intkey\", \"version\": \"1.0\"}, {\"family\":\"sawtooth_settings\", \"version\":\"1.0\"}, {\"family\":\"xo\", \"version\":\"1.0\"}, {\"family\":\"sawtooth_validator_registry\", \"version\":\"1.0\"}]"
+sawtooth-settings-tp-default-0  | INFO  | sawtooth_sdk::proces | TP_PROCESS_REQUEST sending TpProcessResponse: OK
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the following command to check the setting change on the shell
+container or any validator container. You can specify any REST API
+on the network; this example uses the REST API on the first node.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@0e0fdc1ab#</span><span class="w"> </span>sawtooth settings list <span class="nt">--url</span> http://sawtooth-rest-api-default-0:8008
+</code></pre></div>    </div>
+
+    <p>The output should be similar to this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">sawtooth.consensus.algorithm.name: {name}
+sawtooth.consensus.algorithm.version: {version}
+</span><span class="c">...
+</span><span class="go">sawtooth.publisher.max_batches_per_block=1200
+sawtooth.settings.vote.authorized_keys: 0242fcde86373d0aa376...
+sawtooth.validator.transaction_families: [{"family": "intkey...
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="step-6-stop-the-sawtooth-network-optional">Step 6: Stop the Sawtooth Network (Optional)</h3>
+
+<p>Use this procedure to stop or reset the multiple-node Sawtooth
+environment.</p>
+
+<ol>
+  <li>Exit from all open containers (such as the shell, REST-API,
+validator, and settings containers used in this procedure).</li>
+  <li>Enter CTRL-c in the window where you ran <code class="language-plaintext highlighter-rouge">docker-compose up</code>.</li>
+  <li>After all containers have shut down, you can reset the environment
+(remove all containers and data) with the following command:
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker-compose <span class="nt">-f</span> sawtooth-default-pbft.yaml down
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">user@host$</span><span class="w"> </span>docker-compose <span class="nt">-f</span> sawtooth-default-poet.yaml down
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="using-kubernetes-for-a-sawtooth-test-network">Using Kubernetes for a Sawtooth Test Network</h2>
+
+<p>This procedure describes how to use <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer">Kubernetes</a>
+to create a network of five Sawtooth nodes for an application
+development environment. Each node is a Kubernetes pod containing a set
+of containers for a validator and related Sawtooth components.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For a single-node environment, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html">Installing
+Sawtooth</a></p>
+</blockquote>
+
+<p>This procedure guides you through the following tasks:</p>
+
+<blockquote>
+  <ul>
+    <li>Installing <code class="language-plaintext highlighter-rouge">kubectl</code> and <code class="language-plaintext highlighter-rouge">minikube</code>
+</li>
+    <li>Starting Minikube</li>
+    <li>Downloading the Sawtooth configuration file</li>
+    <li>Starting Sawtooth in a Kubernetes cluster</li>
+    <li>Connecting to the Sawtooth shell containers</li>
+    <li>Confirming network and blockchain functionality</li>
+    <li>Configuring the allowed transaction types (optional)</li>
+    <li>Stopping Sawtooth and deleting the Kubernetes cluster</li>
+  </ul>
+</blockquote>
+
+<h3 id="about-the-kubernetes-sawtooth-network-environment">About the Kubernetes Sawtooth Network Environment</h3>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+<p>This test environment is a network of five Sawtooth nodes. This
+environment uses <a href="https://kubernetes.io/docs/setup/minikube/" target="_blank" rel="noopener noreferrer">Minikube</a>
+to deploy Sawtooth as a containerized application in a local Kubernetes
+cluster inside a virtual machine (VM) on your computer.</p>
+
+<p>The Kubernetes cluster has a pod for each Sawtooth node. On each pod,
+there are containers for each Sawtooth component. The Sawtooth nodes are
+connected in an all-to-all peering relationship.</p>
+
+<p><img alt="Appdev Environment Multi-Node Kube" src="/images/1.2/appdev-environment-multi-node-kube.svg"></p>
+
+<p>Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:</p>
+
+<ul>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings</a>
+(<code class="language-plaintext highlighter-rouge">settings-tp</code>): Handles Sawtooth's on-chain
+configuration settings. The Settings transaction processor (or an
+equivalent) is required for all Sawtooth networks.</li>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/integerkey_transaction_family.html">IntegerKey</a>
+(<code class="language-plaintext highlighter-rouge">intkey-tp-python</code>): Demonstrates basic
+Sawtooth functionality. The associated <code class="language-plaintext highlighter-rouge">intkey</code> client includes shell
+commands to perform integer-based transactions.</li>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/xo_transaction_family.html">XO</a>
+(<code class="language-plaintext highlighter-rouge">sawtooth-xo-tp-python</code>): Simple application for playing
+a game of tic-tac-toe on the blockchain. The associated <code class="language-plaintext highlighter-rouge">xo</code> client
+provides shell commands to define players and play a game. XO is
+described in a later section,
+<a href="/docs/1.2/app_developers_guide/intro_xo_transaction_family.html">Intro XO Transaction
+Family</a>
+</li>
+  <li>(PoET only)
+<a href="/docs/1.2/transaction_family_specifications/validator_registry_transaction_family.html">PoET Validator Registry</a>
+ (<code class="language-plaintext highlighter-rouge">poet-validator-registry-tp</code>): Configures PoET consensus and handles a
+ network with multiple nodes.</li>
+</ul>
+
+<blockquote>
+  <p>Important</p>
+
+  <p>Each node in a Sawtooth network must run the same set of transaction
+processors.</p>
+</blockquote>
+
+<p>Like the <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#kubernetes">single-node test environment
+kubernetes</a>,
+this environment uses parallel transaction processing and
+static peering. However, it uses a different consensus algorithm
+(Devmode consensus is not recommended for a network). You can choose
+either PBFT or PoET consensus.</p>
+
+<ul>
+  <li>
+    <p>PBFT consensus provides a voting-based consensus algorithm with
+Byzantine fault tolerance (BFT) that has finality (does not fork).</p>
+  </li>
+  <li>
+    <p>PoET consensus provides a leader-election lottery system that can fork.
+This network uses PoET simulator consensus, which is also called
+PoET CFT because it is crash fault tolerant.</p>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>The other type of PoET consensus, PoET-SGX, relies on Intel Software
+Guard Extensions (SGX) that is Byzantine fault tolerant (BFT). PoET
+CFT provides the same consensus algorithm on an SGX simulator.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>The first node creates the genesis block, which specifies the initial
+on-chain settings for the network configuration. The other nodes access
+those settings when they join the network.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+  <li>This environment requires
+<a href="https://kubernetes.io/docs/concepts/" target="_blank" rel="noopener noreferrer">kubectl</a> and
+<a href="https://kubernetes.io/docs/setup/minikube/" target="_blank" rel="noopener noreferrer">minikube</a> with a
+supported VM hypervisor, such as
+<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener noreferrer">VirtualBox</a>.</li>
+  <li>If you created a
+<a href="/docs/1.2/app_developers_guide/installing_sawtooth.html">single-node Kubernetes environment
+kubernetes</a>
+that is still running, shut it down and delete the
+Minikube cluster, VM, and associated files. For more information,
+see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#stop-sawtooth-kube-label">Stop the Sawtooth Kubernetes
+Cluster</a>
+</li>
+</ul>
+
+<h3 id="step-1-install-kubectl-and-minikube">Step 1: Install kubectl and minikube</h3>
+
+<p>This step summarizes the Kubernetes installation procedures. For more
+information, see the <a href="https://kubernetes.io/docs/tasks/" target="_blank" rel="noopener noreferrer">Kubernetes
+documentation</a>.</p>
+
+<ol>
+  <li>Install a virtual machine (VM) hypervisor such as VirtualBox,
+VMWare, KVM-QEMU, or Hyperkit. This procedure assumes that you're
+using VirtualBox.</li>
+  <li>Install the <code class="language-plaintext highlighter-rouge">kubectl</code> command as described in the Kubernetes
+document <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank" rel="noopener noreferrer">Install
+kubectl</a>.
+    <ul>
+      <li>
+        <p>Linux quick reference:</p>
+
+        <pre><code class="language-none">$ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
+&amp;&amp; chmod +x kubectl &amp;&amp; sudo cp kubectl /usr/local/bin/ &amp;&amp; rm kubectl
+</code></pre>
+      </li>
+      <li>
+        <p>Mac quick reference:</p>
+
+        <pre><code class="language-none">$ curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl \
+&amp;&amp; chmod +x kubectl &amp;&amp; sudo cp kubectl /usr/local/bin/ &amp;&amp; rm kubectl
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>Install <code class="language-plaintext highlighter-rouge">minikube</code> as described in the Kubernetes document <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank" rel="noopener noreferrer">Install
+Minikube</a>.
+    <ul>
+      <li>
+        <p>Linux quick reference:</p>
+
+        <pre><code class="language-none">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+&amp;&amp; chmod +x minikube &amp;&amp; sudo cp minikube /usr/local/bin/ &amp;&amp; rm minikube
+</code></pre>
+      </li>
+      <li>
+        <p>Mac quick reference:</p>
+
+        <pre><code class="language-none">$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+&amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-2-start-minikube">Step 2: Start Minikube</h3>
+
+<ol>
+  <li>
+    <p>Start Minikube.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>minikube start
+<span class="go">Starting local Kubernetes vX.X.X cluster...
+</span><span class="c">...
+</span><span class="go">Kubectl is now configured to use the cluster.
+Loading cached images from config file.
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>(Optional) Test basic Minikube functionality.</p>
+
+    <p>If you have problems, see the Kubernetes document <a href="https://kubernetes.io/docs/setup/minikube/" target="_blank" rel="noopener noreferrer">Running
+Kubernetes Locally via
+Minikube</a>.</p>
+
+    <p>a.  Start Minikube's "Hello, World" test cluster,
+    <code class="language-plaintext highlighter-rouge">hello-minikube</code>.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+$ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --port=8080
+
+$ kubectl expose deployment hello-minikube --type=NodePort
+```
+</code></pre></div>    </div>
+
+    <p>b.  Check the list of pods.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+$ kubectl get pods
+```
+
+After the cluster is up and running, the output of this command
+should display a pod starting with `hello-minikube...`.
+</code></pre></div>    </div>
+
+    <p>c.  Run a <code class="language-plaintext highlighter-rouge">curl</code> test to the cluster.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` none
+$ curl $(minikube service hello-minikube --url)
+```
+</code></pre></div>    </div>
+
+    <p>d.  Remove the <code class="language-plaintext highlighter-rouge">hello-minikube</code> cluster.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+$ kubectl delete services hello-minikube
+
+$ kubectl delete deployment hello-minikube
+```
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="step-3-download-the-sawtooth-configuration-file">Step 3: Download the Sawtooth Configuration File</h3>
+
+<p>Download the Kubernetes configuration (kubeconfig) file for a Sawtooth
+network.</p>
+
+<ul>
+  <li>For PBFT, download
+<a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default-pbft.yaml" target="_blank" rel="noopener noreferrer">sawtooth-kubernetes-default-pbft.yaml</a>
+</li>
+  <li>For PoET, download
+<a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default-poet.yaml" target="_blank" rel="noopener noreferrer">sawtooth-kubernetes-default-poet.yaml</a>
+</li>
+</ul>
+
+<p>The kubeconfig file creates a Sawtooth network with five pods, each
+running a Sawtooth node. It also specifies the container images to
+download (from DockerHub) and the network settings needed for the
+containers to communicate correctly.</p>
+
+<h3 id="step-4-pbft-only-configure-keys-for-the-kubernetes-pods">Step 4: (PBFT Only) Configure Keys for the Kubernetes Pods</h3>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Skip this step if you are using PoET consensus.</p>
+</blockquote>
+
+<p>For a network using PBFT consensus, the initial member list must be
+specified in the genesis block. This step generates public and private
+validator keys for each pod in the network, then creates a Kubernetes
+ConfigMap so that the Sawtooth network can use these keys when it
+starts.</p>
+
+<ol>
+  <li>
+    <p>Change your working directory to the same directory where you saved
+the configuration file.</p>
+  </li>
+  <li>
+    <p>Download the following files:</p>
+
+    <ul>
+      <li><a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/kubernetes/sawtooth-kubernetes-default-poet.yaml" target="_blank" rel="noopener noreferrer">sawtooth-create-pbft-keys.yaml</a></li>
+      <li><a href="https://github.com/splintercommunity/sawtooth-core/blob/1-2/docker/kubernetes/pbft-keys-configmap.yaml" target="_blank" rel="noopener noreferrer">pbft-keys-configmap.yaml</a></li>
+    </ul>
+
+    <p>Save these files in the same directory where you saved
+<code class="language-plaintext highlighter-rouge">sawtooth-kubernetes-default-pbft.yaml...</code> (in the previous step).</p>
+  </li>
+  <li>
+    <p>Use the following command to generate the required keys.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl apply <span class="nt">-f</span> sawtooth-create-pbft-keys.yaml
+<span class="go">job.batch/pbft-keys created
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Get the full name of the <code class="language-plaintext highlighter-rouge">pbft-keys</code> pod.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl get pods |grep pbft-keys
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Display the keys, then copy them for the next step. In the following
+command, replace <code class="language-plaintext highlighter-rouge">pbft-keys-xxxxx</code> with the name of this pod.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl logs pbft-keys-xxxxx
+</code></pre></div>    </div>
+
+    <p>The output will resemble this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">pbft0priv: 028de9ced7ae7c58f1c4b8bb84a8cbf9378eb5943948d2dd6f493d0e7f3cadf3
+pbft0pub: 036c14100c00188f0fe8e686d577f74f35032f97f10d78764f3ec910472f157c15
+pbft1priv: c3e91eac9f8ccebc4d25977b69dc7137e4cf5fc6356a79c36802e712a49fd4b7
+pbft1pub: 02554eddb36a2d0abcb7b51cd2316b213ebe030328cd949ebc105d061e8b6de5b5
+pbft2priv: d34d4133fc830556beb8c642f31db4f082773c557b4108ec409871a10d60d2f4
+pbft2pub: 03a86840dc802e19ea64b130d26f1ab7100f923396d3151ddedc76560bbdf2f778
+pbft3priv: b8c8c79f7c8fe89eae18a805a836e23ad415b014822c60ac244a14c4df2e9429
+pbft3pub: 02a87d1a87ed54cd467d1628a601e780ddc70a6718e4b98407f3d70bb88e8a1ee0
+pbft4priv: 6499688038b519bfc99564978918ce31d74aa758380852608481c7cc1f779483
+pbft4pub: 03186440394f4a447509874095a14550bc1b1821555560f0851a5f3549c8138ac2
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit <code class="language-plaintext highlighter-rouge">pbft-keys-configmap.yaml</code> to add the keys from the previous
+step.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>vim pbft-keys-configmap.yaml
+</code></pre></div>    </div>
+
+    <p>Locate the "blank" key lines under <code class="language-plaintext highlighter-rouge">data:</code> and replace them with
+the keys that you copied from in previous step.</p>
+
+    <p>Make sure that the YAML format is correct. The result should look
+like this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="c">...
+</span><span class="go">
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keys-config
+data:
+  pbft0priv: 028de9ced7ae7c58f1c4b8bb84a8cbf9378eb5943948d2dd6f493d0e7f3cadf3
+  pbft0pub: 036c14100c00188f0fe8e686d577f74f35032f97f10d78764f3ec910472f157c15
+  pbft1priv: c3e91eac9f8ccebc4d25977b69dc7137e4cf5fc6356a79c36802e712a49fd4b7
+  pbft1pub: 02554eddb36a2d0abcb7b51cd2316b213ebe030328cd949ebc105d061e8b6de5b5
+  pbft2priv: d34d4133fc830556beb8c642f31db4f082773c557b4108ec409871a10d60d2f4
+  pbft2pub: 03a86840dc802e19ea64b130d26f1ab7100f923396d3151ddedc76560bbdf2f778
+  pbft3priv: b8c8c79f7c8fe89eae18a805a836e23ad415b014822c60ac244a14c4df2e9429
+  pbft3pub: 02a87d1a87ed54cd467d1628a601e780ddc70a6718e4b98407f3d70bb88e8a1ee0
+  pbft4priv: 6499688038b519bfc99564978918ce31d74aa758380852608481c7cc1f779483
+  pbft4pub: 03186440394f4a447509874095a14550bc1b1821555560f0851a5f3549c8138ac2
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Apply the ConfigMap so that the Sawtooth network can use these keys
+in the next step.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl apply <span class="nt">-f</span> pbft-keys-configmap.yaml
+<span class="go">configmap/keys-config created
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="step-5-start-the-sawtooth-cluster">Step 5: Start the Sawtooth Cluster</h3>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>The Kubernetes configuration file handles the Sawtooth startup steps
+such as generating keys and creating a genesis block. To learn about the
+full Sawtooth startup process, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#ubuntu">Ubuntu</a></p>
+</blockquote>
+
+<p>Use these steps to start the Sawtooth network.</p>
+
+<ol>
+  <li>
+    <p>Change your working directory to the same directory where you saved
+the <code class="language-plaintext highlighter-rouge">sawtooth-kubernetes-default-...</code> configuration file.</p>
+  </li>
+  <li>
+    <p>Start Sawtooth as a local Kubernetes cluster.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl apply <span class="nt">-f</span> sawtooth-kubernetes-default-pbft.yaml
+<span class="go">deployment.extensions/pbft-0 created
+service/sawtooth-0 created
+deployment.extensions/pbft-1 created
+service/sawtooth-1 created
+deployment.extensions/pbft-2 created
+service/sawtooth-2 created
+deployment.extensions/pbft-3 created
+service/sawtooth-3 created
+deployment.extensions/pbft-4 created
+service/sawtooth-4 created
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl apply <span class="nt">-f</span> sawtooth-kubernetes-default-poet.yaml
+<span class="go">deployment.extensions/sawtooth-0 created
+service/sawtooth-0 created
+deployment.extensions/sawtooth-1 created
+service/sawtooth-1 created
+deployment.extensions/sawtooth-2 created
+service/sawtooth-2 created
+deployment.extensions/sawtooth-3 created
+service/sawtooth-3 created
+deployment.extensions/sawtooth-4 created
+service/sawtooth-4 created
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>This Sawtooth network has five pods, numbered from 0 to 4, each
+running a Sawtooth node. You can use the <code class="language-plaintext highlighter-rouge">kubectl</code> command to list
+the pods and get information about each pod.</p>
+
+    <ol>
+      <li>
+        <p>Display the list of pods.</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl get pods
+<span class="go">NAME                     READY     STATUS             RESTARTS   AGE
+pod-0-aaaaaaaaaa-vvvvv   5/8       ContainerCreating  0          21m
+pod-1-bbbbbbbbbb-wwwww   5/8       ContainerCreating  0          21m
+pod-2-ccccccccc-xxxxx    5/8       ContainerCreating  0          21m
+pod-3-dddddddddd-yyyyy   5/8       Pending            0          21m
+pod-4-eeeeeeeeee-zzzzz   5/8       Pending            0          21m
+</span></code></pre></div>        </div>
+
+        <p>Wait until each pod is ready before continuing.</p>
+      </li>
+      <li>
+        <p>You can specify a pod name to display the containers (Sawtooth
+components) for that pod.</p>
+
+        <p>In the following command, replace <code class="language-plaintext highlighter-rouge">pod-N-xxxxxxxxxx-yyyyy</code> with
+a pod name.</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl get pods pod-N-xxxxxxxxxx-yyyyy <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">={</span>.spec.containers[<span class="k">*</span><span class="o">]</span>.name<span class="o">}</span>
+<span class="go">sawtooth-intkey-tp-python sawtooth-pbft-engine sawtooth-rest-api sawtooth-settings-tp sawtooth-shell sawtooth-smallbank-tp-rust sawtooth-validator sawtooth-xo-tp-python
+</span></code></pre></div>        </div>
+
+        <p>Note that each pod has a shell container named <code class="language-plaintext highlighter-rouge">sawtooth-shell</code>.
+You will connect to the shell containers in later steps.</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>(Optional) Start the Minikube dashboard.</p>
+
+    <blockquote>
+      <p>$ minikube dashboard</p>
+    </blockquote>
+
+    <p>This command opens the dashboard in your default browser. The
+overview page includes workload status, deployments, pods, and
+Sawtooth services. The Logs viewer (on the Pods page) shows the
+Sawtooth log files. For more information, see <a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/" target="_blank" rel="noopener noreferrer">Web UI
+(Dashboard)</a>
+in the Kubernetes documentation.</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Any work done in this environment will be lost once you stop Minikube
+and delete the Sawtooth cluster. In order to use this environment for
+application development, or to start and stop Sawtooth nodes (and pods),
+you would need to take additional steps, such as defining volume
+storage. See the <a href="https://kubernetes.io/docs/home/" target="_blank" rel="noopener noreferrer">Kubernetes
+documentation</a> for more information.</p>
+</blockquote>
+
+<h3 id="confirm-func-kube-label">Step 6: Confirm Network and Blockchain Functionality</h3>
+
+<ol>
+  <li>
+    <p>Connect to the shell container on the first pod.</p>
+
+    <p>In the following command, replace <code class="language-plaintext highlighter-rouge">pod-0-xxxxxxxxxx-yyyyy</code> with the
+name of the first pod, as shown by <code class="language-plaintext highlighter-rouge">kubectl get pods</code>.</p>
+
+    <pre><code class="language-none">$ kubectl exec -it pod-0-xxxxxxxxxx-yyyyy --container sawtooth-shell -- bash
+
+root@sawtooth-0#
+</code></pre>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>In this procedure, the prompt <code class="language-plaintext highlighter-rouge">root@sawtooth-0#</code> marks the commands
+that should be run on the Sawtooth node in pod 0. The actual prompt
+is similar to <code class="language-plaintext highlighter-rouge">root@pbft-0-dabbad0000-5w45k:/#</code> (for PBFT) or
+<code class="language-plaintext highlighter-rouge">root@sawtooth-0-f0000dd00d-sw33t:/#</code> (for PoET).</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Display the list of blocks on the Sawtooth blockchain.</p>
+
+    <blockquote>
+      <pre><code class="language-none">root@sawtooth-0# sawtooth block list
+</code></pre>
+    </blockquote>
+
+    <p>The output will be similar to this example:</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
+2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
+1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
+0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
+</span></code></pre></div>      </div>
+    </blockquote>
+
+    <p>Block 0 is the <em>genesis block</em> (see <a href="../glossary">glossary</a>). The
+other two blocks contain transactions for on-chain settings.</p>
+  </li>
+  <li>
+    <p>In a separate terminal window, connect to a different pod (such as
+pod 1) and verify that it has joined the Sawtooth network.</p>
+
+    <p>In the following command, replace <code class="language-plaintext highlighter-rouge">pod-1-xxxxxxxxxx-yyyyy</code> with the
+name of the pod, as shown by <code class="language-plaintext highlighter-rouge">kubectl get pods</code>.</p>
+
+    <blockquote>
+      <pre><code class="language-none">$ kubectl exec -it pod-1-xxxxxxxxxx-yyyyy --container sawtooth-shell -- bash
+
+root@sawtooth-1#
+</code></pre>
+
+      <p>The prompt <code class="language-plaintext highlighter-rouge">root@sawtooth-1#</code> marks the commands that should be
+run on the Sawtooth node in this pod.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Display the list of blocks on the pod.</p>
+
+    <blockquote>
+      <pre><code class="language-none">root@sawtooth-1# sawtooth block list
+</code></pre>
+    </blockquote>
+
+    <p>You should see the same list of blocks with the same block IDs, as
+in this example:</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
+2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
+1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
+0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>(Optional) You can run the following Sawtooth commands from any
+shell container to show the other nodes on the network.</p>
+
+    <p>In the following commands, replace <code class="language-plaintext highlighter-rouge">pod-N-xxxxxxxxxx-yyyyy</code> with the
+name of the pod, as shown by <code class="language-plaintext highlighter-rouge">kubectl get pods</code>.</p>
+
+    <p>a.  Connect to any shell container.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` none
+$ kubectl exec -it pod-N-xxxxxxxxxx-yyyyy --container sawtooth-shell -- bash
+
+root@sawtooth-N#
+```
+</code></pre></div>    </div>
+
+    <p>b.  Run <code class="language-plaintext highlighter-rouge">sawtooth peer list</code> to show the peers of a particular node.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+root@sawtooth-N# sawtooth peer list
+```
+</code></pre></div>    </div>
+
+    <p>c.  Run <code class="language-plaintext highlighter-rouge">sawnet peers list</code> to display a complete graph of peers on
+    the network (available in Sawtooth release 1.1 and later).</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+root@sawtooth-N# sawnet peers list http://localhost:8008
+```
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>You can submit a transaction on one Sawtooth node, then look for the
+results of that transaction on another node.</p>
+
+    <p>a.  From the shell container one pod (such as pod 0), use the
+    <code class="language-plaintext highlighter-rouge">intkey set</code> command to submit a transaction on the first node.
+    This example sets a key named <code class="language-plaintext highlighter-rouge">MyKey</code> to the value 999.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>&gt; ``` console
+&gt; root@sawtooth-0# intkey set MyKey 999
+&gt; {
+&gt;   "link":
+&gt;   "http://127.0.0.1:8008/batch_statuses?id=1b7f121a82e73ba0e7f73de3e8b46137a2e47b9a2d2e6566275b5ee45e00ee5a06395e11c8aef76ff0230cbac0c0f162bb7be626df38681b5b1064f9c18c76e5"
+&gt;   }
+&gt; ```
+</code></pre></div>    </div>
+
+    <p>b.  From the shell container on a different pod (such as pod 1),
+    check that the value has been changed on that node.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>&gt; ``` console
+&gt; root@sawtooth-1# intkey show MyKey
+&gt; MyKey: 999
+&gt; ```
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>You can check whether a Sawtooth component is running by connecting
+to a different container, then running the <code class="language-plaintext highlighter-rouge">ps</code> command. The
+container names are available in the kubeconfig file or on a pod's
+page on the Kubernetes dashboard.</p>
+
+    <p>The following example connects to the Settings transaction processor
+container (<code class="language-plaintext highlighter-rouge">sawtooth-settings-tp</code>) on pod 3, then displays the list
+of running process. Replace <code class="language-plaintext highlighter-rouge">pod-3-xxxxxxxxxx-yyyyy</code> with the name
+of the pod, as shown by <code class="language-plaintext highlighter-rouge">kubectl get pods</code>.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> pod-3-xxxxxxxxxx-yyyyy <span class="nt">--container</span> sawtooth-settings-tp <span class="nt">--</span> bash
+<span class="go">
+</span><span class="gp">root@sawtooth-3#</span><span class="w"> </span>ps <span class="nt">--pid</span> 1 fw
+<span class="go">  PID TTY      STAT   TIME COMMAND
+    1 ?        Ssl    0:02 settings-tp -vv -C tcp://sawtooth-3-5bd565ff45-2klm7:4004
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>At this point, your environment is ready for experimenting with
+Sawtooth.</p>
+
+<blockquote>
+  <p><strong>Tip</strong></p>
+
+  <p>For more ways to test basic functionality, see
+<a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#kubernetes">Kubernetes</a>. For example:</p>
+
+  <ul>
+    <li>To use Sawtooth client commands to view block information and check
+state data, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#sawtooth-client-kube-label">Use Sawtooth Commands as a
+Client</a>
+</li>
+    <li>For information on the Sawtooth logs, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#examine-logs-kube-label">Examine Sawtooth
+Logs</a>
+</li>
+  </ul>
+</blockquote>
+
+<h3 id="configure-txn-procs-kube-label">Step 7. Configure the Allowed Transaction Types (Optional)</h3>
+
+<p>By default, a validator accepts transactions from any transaction
+processor. However, Sawtooth allows you to limit the types of
+transactions that can be submitted.</p>
+
+<p>In this step, you will configure the Sawtooth network to accept
+transactions only from the transaction processors running in the example
+environment. Transaction-type restrictions are an on-chain setting, so
+this configuration change is made on one node, then applied to all other
+nodes.</p>
+
+<p>The <a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings transaction
+processor</a>
+handles on-chain configuration settings. You will use the
+<code class="language-plaintext highlighter-rouge">sawset</code> command to create and submit a batch of transactions containing
+the configuration change.</p>
+
+<ol>
+  <li>
+    <p>Connect to the validator container of the first node. The next
+command requires the user key that was generated in that container.</p>
+
+    <p>Replace <code class="language-plaintext highlighter-rouge">pod-0-xxxxxxxxxx-yyyyy</code> with the name of the first pod, as
+shown by <code class="language-plaintext highlighter-rouge">kubectl get pods</code>.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl <span class="nb">exec</span> <span class="nt">-it</span> pod-0-xxxxxxxxxx-yyyyy <span class="nt">--container</span> sawtooth-validator <span class="nt">--</span> bash
+<span class="gp">root@sawtooth-0#</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the following command from the validator container to specify
+the allowed transaction families.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@sawtooth-0#</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> /root/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}]'
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@sawtooth-0#</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> /root/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">sawtooth.validator.transaction_families='[{"family": "intkey", "version": "1.0"}, {"family":"sawtooth_settings", "version":"1.0"}, {"family":"xo", "version":"1.0"}, {"family":"sawtooth_validator_registry", "version":"1.0"}]'
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p>This command sets <code class="language-plaintext highlighter-rouge">sawtooth.validator.transaction_families</code> to a
+JSON array that specifies the family name and version of each
+allowed transaction processor (defined in the transaction header of
+each family's
+<a href="(/docs/1.2/transaction_family_specifications/)">transaction family
+specification</a></p>
+  </li>
+  <li>
+    <p>After this command runs, a <code class="language-plaintext highlighter-rouge">TP_PROCESS_REQUEST</code> message appears in
+the log for the Settings transaction processor.</p>
+
+    <ul>
+      <li>
+        <p>You can use the Kubernetes dashboard to view this log message:
+a.  Run <code class="language-plaintext highlighter-rouge">minikube dashboard</code> to start the Kubernetes dashboard,
+    if necessary.</p>
+
+        <p>b.  From the Overview page, scroll to the list of pods and click
+    on any pod name.</p>
+
+        <p>c.  On the pod page, click <code class="language-plaintext highlighter-rouge">LOGS</code> (in the top right).</p>
+
+        <p>d.  On the pod's log page, select logs from
+    <code class="language-plaintext highlighter-rouge">sawtooth-settings-tp</code>, then scroll to the bottom of the
+    log. The message will resemble this example:</p>
+
+        <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` none
+[2018-09-05 20:07:41.903 DEBUG    core] received message of type: TP_PROCESS_REQUEST
+```
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Run the following command to check the setting change. You can use
+any container, such as a shell or another validator container.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">root@sawtooth-1#</span><span class="w"> </span>sawtooth settings list
+</code></pre></div>    </div>
+
+    <p>The output should be similar to this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">sawtooth.consensus.algorithm.name: {name}
+sawtooth.consensus.algorithm.version: {version}
+</span><span class="c">...
+</span><span class="go">sawtooth.publisher.max_batches_per_block: 200
+sawtooth.settings.vote.authorized_keys: 03e27504580fa15da431...
+sawtooth.validator.transaction_families: [{"family": "intkey...
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="stop-sawtooth-kube2-label">Step 8: Stop the Sawtooth Kubernetes Cluster</h3>
+
+<p>Use the following commands to stop and reset the Sawtooth network.</p>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Any work done in this environment will be lost once you delete the
+Sawtooth pods. To keep your work, you would need to take additional
+steps, such as defining volume storage. See the <a href="https://kubernetes.io/docs/home/" target="_blank" rel="noopener noreferrer">Kubernetes
+documentation</a> for more information.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Log out of all Sawtooth containers.</p>
+  </li>
+  <li>
+    <p>Stop Sawtooth and delete the pods. Run the following command from
+the same directory where you saved the configuration file.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl delete <span class="nt">-f</span> sawtooth-kubernetes-default-pbft.yaml
+<span class="go">deployment.extensions "pbft-0" deleted
+service "sawtooth-0" deleted
+deployment.extensions "pbft-1" deleted
+service "sawtooth-1" deleted
+deployment.extensions "pbft-2" deleted
+service "sawtooth-2" deleted
+deployment.extensions "pbft-3" deleted
+service "sawtooth-3" deleted
+deployment.extensions "pbft-4" deleted
+service "sawtooth-4" deleted
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>kubectl delete <span class="nt">-f</span> sawtooth-kubernetes-default-poet.yaml
+<span class="go">deployment.extensions "sawtooth-0" deleted
+service "sawtooth-0" deleted
+deployment.extensions "sawtooth-1" deleted
+service "sawtooth-1" deleted
+deployment.extensions "sawtooth-2" deleted
+service "sawtooth-2" deleted
+deployment.extensions "sawtooth-3" deleted
+service "sawtooth-3" deleted
+deployment.extensions "sawtooth-4" deleted
+service "sawtooth-4" deleted
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Stop the Minikube cluster.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>minikube stop
+<span class="go">Stopping local Kubernetes cluster...
+Machine stopped.
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Delete the Minikube cluster, VM, and all associated files.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>minikube delete
+<span class="go">Deleting local Kubernetes cluster...
+Machine deleted.
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="using-ubuntu-for-a-sawtooth-test-network">Using Ubuntu for a Sawtooth Test Network</h2>
+
+<p>This procedure describes how to create a Sawtooth network for an
+application development environment on a Ubuntu platform. Each host
+system (physical computer or virtual machine) is a Sawtooth
+node (see <a href="../glossary">glossary</a> and <a href="../architecture">diagram</a>) that runs
+a validator and related Sawtooth components.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For a single-node environment, see <a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#ubuntu">ubuntu</a></p>
+</blockquote>
+
+<p>This procedure guides you through the following tasks:</p>
+
+<blockquote>
+  <ul>
+    <li>Installing Sawtooth</li>
+    <li>Creating user and validator keys</li>
+    <li>Creating the genesis block on the first node (includes specifying
+either PBFT or PoET consensus)</li>
+    <li>Starting Sawtooth on each node</li>
+    <li>Confirming network functionality</li>
+    <li>Configuring the allowed transaction types (optional)</li>
+  </ul>
+</blockquote>
+
+<p>For information on Sawtooth dynamic consensus or to learn how to change
+the consensus type, see <a href="/docs/1.2/sysadmin_guide/about_dynamic_consensus.html">About Dynamic
+Consensus</a>.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>These instructions have been tested on Ubuntu 18.04 (Bionic) only.</p>
+</blockquote>
+
+<h3 id="about-sawtooth-nw-env-label">About the Ubuntu Sawtooth Network Environment</h3>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+<p>This test environment is a network of several Sawtooth nodes. The
+following figure shows a network with five nodes.</p>
+
+<p><img alt="Appdev Environment Multi-Node" src="/images/1.2/appdev-environment-multi-node.svg"></p>
+
+<p>Each node in this Sawtooth network runs a validator, a REST API, a consensus
+engine, and the following transaction processors:</p>
+
+<ul>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/settings_transaction_family.html">Settings</a>
+(<code class="language-plaintext highlighter-rouge">settings-tp</code>): Handles Sawtooth's on-chain
+configuration settings. The Settings transaction processor (or an
+equivalent) is required for all Sawtooth networks.</li>
+  <li>
+    <p><a href="/docs/1.2/transaction_family_specifications/integerkey_transaction_family.html">IntegerKey</a>
+(<code class="language-plaintext highlighter-rouge">intkey-tp-python</code>): Demonstrates basic
+Sawtooth functionality. The associated <code class="language-plaintext highlighter-rouge">intkey</code> client includes shell
+commands to perform integer-based transactions.</p>
+  </li>
+  <li>
+<a href="/docs/1.2/transaction_family_specifications/xo_transaction_family.html">XO</a>
+(<code class="language-plaintext highlighter-rouge">sawtooth-xo-tp-python</code>): Simple application for playing
+a game of tic-tac-toe on the blockchain. The associated <code class="language-plaintext highlighter-rouge">xo</code> client
+provides shell commands to define players and play a game. XO is
+described in a later section,
+<a href="/docs/1.2/app_developers_guide/intro_xo_transaction_family.html">Intro XO Transaction
+Family</a>
+</li>
+  <li>(PoET only)
+<a href="/docs/1.2/transaction_family_specifications/validator_registry_transaction_family.html">PoET Validator Registry</a>
+ (<code class="language-plaintext highlighter-rouge">poet-validator-registry-tp</code>): Configures PoET consensus and handles a
+ network with multiple nodes.</li>
+</ul>
+
+<blockquote>
+  <p>Important</p>
+
+  <p>Each node in a Sawtooth network must run the same set of transaction
+processors.</p>
+</blockquote>
+
+<p>Like the single-node environment, this environment uses parallel
+transaction processing and static peering. However, it uses a different
+consensus algorithm (Devmode consensus is not recommended for a
+network).</p>
+
+<p>This procedure explains how to configure either PBFT or PoET consensus.
+The initial network must include the minimum number of nodes for the
+chosen consensus:</p>
+
+<blockquote>
+  <ul>
+    <li>
+      <p>PBFT consensus requires four or
+more nodes. At least four nodes must be configured and running in
+order for the network to start.</p>
+    </li>
+    <li>
+      <p>PoET consensus requires three or
+more nodes. You can start the first node and test basic
+functionality, then add the other nodes.</p>
+
+      <p><strong>Note</strong></p>
+
+      <p>This procedure uses PoET simulator consensus (also called PoET CFT
+because it is crash fault tolerant), which is a version of
+PoET-SGX consensus that runs on any processor.</p>
+    </li>
+    <li>
+      <p>Devmode consensus has no minimum
+requirement, but it is not recommended for multiple-node test
+networks or production networks. Devmode is a light-weight
+consensus that is intended for short-term testing on a single node
+or a very small network (two or three nodes). It is not crash
+fault tolerant and does not handle forks efficiently.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For PBFT consensus, the network must be fully peered (each
+node must be connected to all other nodes).</p>
+</blockquote>
+
+<h3 id="prereqs-multi-ubuntu-label">Prerequisites</h3>
+
+<ul>
+  <li>Remove data from an existing single node: To reuse the single test
+node described in
+<a href="/docs/1.2/app_developers_guide/installing_sawtooth.html#ubuntu">Ubuntu</a>, stop
+Sawtooth and delete all blockchain data and logs from that node.
+    <ol>
+      <li>If the first node is running, stop the Sawtooth components
+(validator, REST API, consensus engine, and transaction
+processors), as described in <a href="#stop-sawtooth-ubuntu-label">Stop Sawtooth
+Components</a>
+</li>
+      <li>Delete the existing blockchain data by removing all files from
+<code class="language-plaintext highlighter-rouge">/var/lib/sawtooth/</code>.</li>
+      <li>Delete the logs by removing all files from <code class="language-plaintext highlighter-rouge">/var/log/sawtooth/</code>.</li>
+      <li>You can reuse the existing user and validator keys. If you want
+to start with new keys, delete the <code class="language-plaintext highlighter-rouge">.priv</code> and <code class="language-plaintext highlighter-rouge">.pub</code> files from
+<code class="language-plaintext highlighter-rouge">/home/yourname/.sawtooth/keys/</code> and <code class="language-plaintext highlighter-rouge">/etc/sawtooth/keys/</code>.</li>
+    </ol>
+  </li>
+  <li>Gather networking information: For each node that will be on your
+network, gather the following information.
+    <ul>
+      <li>
+<strong>Component bind string</strong>: Where this validator will listen for
+incoming communication from this validator's components. You
+will set this value with <code class="language-plaintext highlighter-rouge">--bind component</code> when starting the
+validator. Default: <code class="language-plaintext highlighter-rouge">tcp://127.0.0.1:4004</code>.</li>
+      <li>
+<strong>Network bind string</strong>: Where this validator will listen for
+incoming communication from other nodes (also called peers). You
+will set this value with <code class="language-plaintext highlighter-rouge">--bind network</code> when starting the
+validator. Default: <code class="language-plaintext highlighter-rouge">tcp://127.0.0.1:8800</code>.</li>
+      <li>
+<strong>Public endpoint string</strong>: The address that other peers should
+use to find the validator on this node. You will set this value
+with <code class="language-plaintext highlighter-rouge">--endpoint</code> when starting the validator. You will also
+specify this value in the peers list when starting a validator
+on another node. Default: <code class="language-plaintext highlighter-rouge">tcp://127.0.0.1:8800</code>.</li>
+      <li>
+<strong>Consensus endpoint string</strong>: Where this validator will listen
+for incoming communication from the
+consensus engine. You will set this value with <code class="language-plaintext highlighter-rouge">--bind consensus</code> when
+starting the validator. Default: <code class="language-plaintext highlighter-rouge">tcp://127.0.0.1:5050</code>.</li>
+      <li>
+<strong>Peers list</strong>: The addresses that this validator should use to
+connect to the other nodes (peers); that is, the public endpoint
+strings of those nodes. You will set this value with <code class="language-plaintext highlighter-rouge">--peers</code>
+when starting the validator. Default: none.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="about-component-and-network-bind-strings">About component and network bind strings</h4>
+
+<p>For the network bind string and component bind string, you would
+typically use a specific network interface that you want to bind to. The
+<code class="language-plaintext highlighter-rouge">ifconfig</code> command provides an easy way to determine what this interface
+should be. <code class="language-plaintext highlighter-rouge">ifconfig</code> displays the network interfaces on your host
+system, along with additional information about the interfaces. For
+example:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ifconfig
+<span class="go">eth0      Link encap:Ethernet  HWaddr ...
+          inet addr:...  Bcast:...  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:17964 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6134 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:26335425 (26.3 MB)  TX bytes:338394 (338.3 KB)
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+</span></code></pre></div></div>
+
+<p>This example output shows that <code class="language-plaintext highlighter-rouge">eth0</code> is a network interface that has
+access to the Internet. In this case, you could use one of the
+following:</p>
+
+<ul>
+  <li>If you would like the validator to accept connections from other
+nodes on the network behind <code class="language-plaintext highlighter-rouge">eth0</code>, you could specify a network bind
+string such as <code class="language-plaintext highlighter-rouge">tcp://eth0:8800</code>.</li>
+  <li>If you would like the validator to accept only connections from
+local Sawtooth components, you could specify the component bind
+string <code class="language-plaintext highlighter-rouge">tcp://lo:4004</code>. Note that this is equivalent to
+<code class="language-plaintext highlighter-rouge">tcp://127.0.0.1:4004</code>.</li>
+</ul>
+
+<p>For more information on how to specify the component and network bind
+strings, see "Assigning a local address to a socket" in the <a href="http://api.zeromq.org/4-2:zmq-tcp" target="_blank" rel="noopener noreferrer">zmq-tcp
+API Reference</a>.</p>
+
+<h4 id="about-endpoint-string-label">About the public endpoint string</h4>
+
+<p>The correct value for your public endpoint string depends on your
+network configuration.</p>
+
+<ul>
+  <li>
+    <p>If this network is for development purposes and all of the nodes
+will be on the same local network, the IP address returned by
+<code class="language-plaintext highlighter-rouge">ifconfig</code> should work as your public endpoint string.</p>
+  </li>
+  <li>
+    <p>If part of your network is behind a NAT or firewall, or if you want
+to start up a public network on the Internet, you must determine the
+correct routable values for all the nodes in your network.</p>
+
+    <p>Determining these values for a distributed or production network is
+an advanced networking topic that is beyond the scope of this guide.
+Contact your network administrator for help with this task.</p>
+  </li>
+</ul>
+
+<p>For information on how to specify the public endpoint string, see
+"Connecting a socket" in the <a href="http://api.zeromq.org/4-2:zmq-tcp" target="_blank" rel="noopener noreferrer">zmq-tcp API
+Reference</a>.</p>
+
+<h3 id="step-1-install-sawtooth-on-all-nodes">Step 1: Install Sawtooth on All Nodes</h3>
+
+<p>Use these steps on each system to install Sawtooth.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <ul>
+    <li>For PBFT consensus, you must install Sawtooth and generate keys for
+all nodes before continuing to step 3 (creating the genesis block on
+the first node).</li>
+    <li>For PoET consensus, you can choose to install Sawtooth on the other
+nodes after configuring and starting the first node.</li>
+  </ul>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Choose whether you want the stable version (recommended) or the most
+recent nightly build (for testing purposes only).</p>
+
+    <ul>
+      <li>
+        <p>(Release 1.2 and later) To add the stable repository, run these
+commands in a terminal window on your host system.</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv-keys</span> 8AA7AF1F1091A5FD
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>add-apt-repository <span class="s1">'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe'</span>
+</code></pre></div>        </div>
+
+        <blockquote>
+          <p><strong>Note</strong></p>
+
+          <p>The <code class="language-plaintext highlighter-rouge">chime</code> metapackage includes the Sawtooth core software and
+associated items such as separate consensus software.</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>The latest version of Sawtooth is available in a repository of
+nightly builds. These builds may incorporate undocumented
+features and should be used for testing purposes only.</p>
+
+        <p>To use the nightly repository, run the following commands in a
+terminal window on your host system.</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv-keys</span> 44FC67F19B2466EA
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-add-repository <span class="s1">'deb [arch=amd64] http://repo.sawtooth.me/ubuntu/nightly bionic universe'</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Update your package lists.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get update
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the Sawtooth packages. Sawtooth consists of several Ubuntu
+packages that can be installed together using the <code class="language-plaintext highlighter-rouge">sawtooth</code>
+meta-package. Run the following command:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> sawtooth
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<blockquote>
+  <ol>
+    <li>
+      <p>(PBFT only) Install the PBFT consensus engine package.</p>
+
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> sawtooth sawtooth-pbft-engine
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>(PoET only) Install the PoET consensus engine, transaction
+processor, and CLI packages.</p>
+
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> sawtooth <span class="se">\</span>
+<span class="go">python3-sawtooth-poet-cli \
+python3-sawtooth-poet-engine \
+python3-sawtooth-poet-families
+</span></code></pre></div>      </div>
+    </li>
+  </ol>
+
+  <blockquote>
+    <p><strong>Tip</strong></p>
+
+    <p>Any time after installation, you can view the installed Sawtooth
+packages with the following command:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dpkg <span class="nt">-l</span> <span class="s1">'*sawtooth*'</span>
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<h3 id="step-2-create-user-and-validator-keys">Step 2: Create User and Validator Keys</h3>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>Skip this step if you are reusing an existing node that already has user
+and validator keys.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>For PBFT, repeat this procedure on the other nodes in the initial
+network. When you create the genesis block on the first node, you will
+need the validator keys for at least three other nodes.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Generate your user key for Sawtooth.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawtooth keygen my_key
+<span class="go">writing file: /home/yourname/.sawtooth/keys/my_key.priv
+writing file: /home/yourname/.sawtooth/keys/my_key.pub
+</span></code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>This command specifies <code class="language-plaintext highlighter-rouge">my_key</code> as the base name for the key files,
+to be consistent with the key name that is used in some example
+Docker and Kubernetes files. By default (when no key name is
+specified), the <code class="language-plaintext highlighter-rouge">sawtooth keygen</code> command uses your user name.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Generate the key for the validator, which runs as root.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>sawadm keygen
+<span class="go">writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+</span></code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>By default, this command stores the validator key files in
+<code class="language-plaintext highlighter-rouge">/etc/sawtooth/keys/validator.priv</code> and
+<code class="language-plaintext highlighter-rouge">/etc/sawtooth/keys/validator.pub</code>. However, settings in the path
+configuration file could change this location; see <a href="/docs/1.2/sysadmin_guide/configuring_sawtooth.html">Path Configuring
+Sawtooth</a>.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="step-3-create-the-genesis-block-on-the-first-node">Step 3: Create the Genesis Block on the First Node</h3>
+
+<p>The first node creates the genesis block, which specifies the initial
+on-chain settings for the network configuration. Other nodes access
+those settings when they join the network.</p>
+
+<p><strong>Prerequisites</strong>:</p>
+
+<ul>
+  <li>If you are reusing an existing node, make sure that you have deleted
+the blockchain data before continuing (as described in
+the Ubuntu section’s prerequisites).</li>
+  <li>For PBFT, the genesis block requires the validator keys for at least
+four nodes (or all nodes in the initial network, if known). If you
+have not installed Sawtooth and generated keys on the other nodes,
+perform <a href="#step-1-install-sawtooth-on-all-nodes">Step 1</a> and
+<a href="#step-2-create-user-and-validator-keys">Step 2</a>
+on those nodes, then gather the public keys from
+<code class="language-plaintext highlighter-rouge">/etc/sawtooth/keys/validator.pub</code> on each node.</li>
+</ul>
+
+<p>The first node in a new Sawtooth network must create the genesis
+block (the first block on the distributed ledger). When the
+other nodes join the network, they use the on-chain settings that were
+specified in the genesis block.</p>
+
+<p>The genesis block specifies the consensus algorithm and the keys for
+nodes (or users) who are authorized to change configuration settings.
+For PBFT, the genesis block also includes the keys for the other nodes
+in the initial network.</p>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Use this procedure <strong>only</strong> for the first node on a Sawtooth network.
+Skip this procedure for a node that will join an existing network.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Ensure that the required user and validator keys exist on this node:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> <span class="nv">$HOME</span>/.sawtooth/keys/
+<span class="go">my_key.priv    my_key.pub
+
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> /etc/sawtooth/keys/
+<span class="go">validator.priv   validator.pub
+</span></code></pre></div>    </div>
+
+    <p>If these key files do not exist, create them as described in the
+previous step.</p>
+  </li>
+  <li>
+    <p>Change to a writable directory such as <code class="language-plaintext highlighter-rouge">/tmp</code>.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> /tmp
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create a batch with a settings proposal for the genesis block.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawset genesis <span class="nt">--key</span> <span class="nv">$HOME</span>/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">-o config-genesis.batch
+</span></code></pre></div>    </div>
+
+    <p>This command authorizes you to set and change Sawtooth settings. The
+settings changes will take effect after the validator and Settings
+transaction processor have started.</p>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>You must use the same key for the <code class="language-plaintext highlighter-rouge">sawset proposal create</code> commands
+in the following steps. In theory, some of these commands could use
+a different key, but configuring multiple keys is a complicated
+process that is not shown in this procedure. For more information,
+see <a href="/docs/1.2/sysadmin_guide/adding_authorized_users.html">Adding Authorized
+Users</a>.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Create a batch to initialize the consensus settings.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> <span class="nv">$HOME</span>/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">-o config-consensus.batch \
+sawtooth.consensus.algorithm.name=pbft \
+sawtooth.consensus.algorithm.version=1.0 \
+sawtooth.consensus.pbft.members='["VAL1KEY","VAL2KEY",...,"VALnKEY"]'
+</span></code></pre></div>        </div>
+
+        <p>Replace <code class="language-plaintext highlighter-rouge">"VAL1KEY","VAL2KEY","VAL3KEY",...,"VALnKEY"</code> with the
+validator public keys of all the nodes (including this node).
+This information is in the file
+<code class="language-plaintext highlighter-rouge">/etc/sawtooth/keys/validator.pub</code> on each node. Be sure to use
+single quotes and double quotes correctly, as shown in the
+example.</p>
+
+        <blockquote>
+          <p><strong>Tip</strong></p>
+
+          <p>The PBFT version number is in the file
+<code class="language-plaintext highlighter-rouge">sawtooth-pbft/Cargo.toml</code> as
+<code class="language-plaintext highlighter-rouge">version = "{major}.{minor}.{patch}"</code>. Use only the first two
+digits (major and minor release numbers); omit the patch number.
+For example, if the version is 1.0.3, use <code class="language-plaintext highlighter-rouge">1.0</code> for this
+setting.</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> <span class="nv">$HOME</span>/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">-o config-consensus.batch \
+sawtooth.consensus.algorithm.name=PoET \
+sawtooth.consensus.algorithm.version=0.1 \
+</span><span class="gp">sawtooth.poet.report_public_key_pem="$</span><span class="o">(</span><span class="nb">cat</span> /etc/sawtooth/simulator_rk_pub.pem<span class="o">)</span><span class="s2">" </span><span class="se">\</span><span class="s2">
+</span><span class="gp">sawtooth.poet.valid_enclave_measurements=$</span><span class="s2">(poet enclave measurement) </span><span class="se">\</span><span class="s2">
+</span><span class="gp">sawtooth.poet.valid_enclave_basenames=$</span><span class="s2">(poet enclave basename)
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>This is a complicated command. Here’s an explanation of the options
+and arguments:</p>
+
+      <dl>
+        <dt><code class="language-plaintext highlighter-rouge">--key $HOME/.sawtooth/keys/my_key.priv</code></dt>
+        <dd>
+          <p>Signs the proposal with your private key. Only this key can be
+used to change on-chain settings.</p>
+        </dd>
+        <dt><code class="language-plaintext highlighter-rouge">-o config-consensus.batch</code></dt>
+        <dd>
+          <p>Wraps the consensus proposal transaction in a batch named
+<code class="language-plaintext highlighter-rouge">config-consensus.batch</code>.</p>
+        </dd>
+        <dt><code class="language-plaintext highlighter-rouge">sawtooth.consensus.algorithm.name</code></dt>
+        <dd>
+          <p>Specifies the consensus algorithm for this network; this setting
+is required.</p>
+        </dd>
+        <dt><code class="language-plaintext highlighter-rouge">sawtooth.consensus.algorithm.version</code></dt>
+        <dd>
+          <p>Specifies the version of the consensus algorithm; this setting
+is required.</p>
+        </dd>
+        <dt>(PBFT only) <code class="language-plaintext highlighter-rouge">sawtooth.consensus.pbft.members</code>
+</dt>
+        <dd>
+          <p>Lists the member nodes on the initial network as a
+JSON-formatted string of the validators' public keys, using the
+following format:</p>
+
+          <p><code class="language-plaintext highlighter-rouge">'["&lt;public-key-1&gt;","&lt;public-key-2&gt;",...,"&lt;public-key-n&gt;"]'</code></p>
+        </dd>
+        <dt>(PoET only) <code class="language-plaintext highlighter-rouge">sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)"</code>
+</dt>
+        <dd>
+          <p>Adds the public key for the PoET Validator Registry transaction
+processor to use for the PoET simulator consensus.</p>
+        </dd>
+        <dt>(PoET only) <code class="language-plaintext highlighter-rouge">sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement)</code>
+</dt>
+        <dd>
+          <p>Adds a simulated enclave measurement to the blockchain. The PoET
+Validator Registry transaction processor uses this value to
+check signup information.</p>
+        </dd>
+        <dt>(PoET only) <code class="language-plaintext highlighter-rouge">sawtooth.poet.valid_enclave_basenames=$(poet enclave basename)</code>
+</dt>
+        <dd>
+          <p>Adds a simulated enclave basename to the blockchain. The PoET
+Validator Registry uses this value to check signup information.</p>
+        </dd>
+      </dl>
+    </blockquote>
+  </li>
+  <li>
+    <p>(PoET only) Create a batch to register the first Sawtooth node with
+the PoET Validator Registry transaction processor, using the
+validator's private key. Without this command, the validator would
+not be able to publish any blocks.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>poet registration create <span class="nt">--key</span> /etc/sawtooth/keys/validator.priv <span class="nt">-o</span> poet.batch
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>(Optional) Create a batch to configure other consensus settings.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> <span class="nv">$HOME</span>/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">-o pbft-settings.batch \
+SETTING-NAME=VALUE \
+... \
+SETTING-NAME=VALUE
+</span></code></pre></div>        </div>
+
+        <p>For the available settings and their default values, see
+<a href="/docs/1.2/pbft/configuring-pbft.html#pbft-on-chain%20-settings">PBFT On-Chain
+Settings</a>
+in the Sawtooth PBFT documentation.</p>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawset proposal create <span class="nt">--key</span> <span class="nv">$HOME</span>/.sawtooth/keys/my_key.priv <span class="se">\</span>
+<span class="go">-o poet-settings.batch \
+sawtooth.poet.target_wait_time=5 \
+sawtooth.poet.initial_wait_time=25 \
+sawtooth.publisher.max_batches_per_block=100
+</span></code></pre></div>        </div>
+
+        <blockquote>
+          <p><strong>Note</strong></p>
+
+          <p>This example shows the default PoET settings. For more
+information, see the <a href="/faq/settings.html">Sawtooth Settings
+FAQ</a>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>As the sawtooth user, combine the separate batches into a single
+genesis batch that will be committed in the genesis block.</p>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth sawadm genesis <span class="se">\</span>
+<span class="go">config-genesis.batch config-consensus.batch pbft-settings.batch
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth sawadm genesis <span class="se">\</span>
+<span class="go">config-genesis.batch config-consensus.batch poet.batch poet-settings.batch
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p>You’ll see some output indicating success:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">Processing config-genesis.batch...
+Processing config-consensus.batch...
+</span><span class="c">...
+</span><span class="go">Generating /var/lib/sawtooth/genesis.batch
+</span></code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>The <code class="language-plaintext highlighter-rouge">sawtooth.consensus.algorithm.name</code> and
+<code class="language-plaintext highlighter-rouge">sawtooth.consensus.algorithm.version</code> settings are required;
+<code class="language-plaintext highlighter-rouge">sawadm genesis</code> will fail if they are not present in one of the
+batches unless the <code class="language-plaintext highlighter-rouge">--ignore-required-settings</code> flag is used.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p>When this command finishes, the genesis block is complete.</p>
+
+<p>The settings in the genesis block will be available after the first node
+has started and the genesis block has been committed.</p>
+
+<h3 id="step-4-pbft-only-configure-peers-in-off-chain-settings">Step 4. (PBFT Only) Configure Peers in Off-Chain Settings</h3>
+
+<p>For PBFT, each node specify the peer nodes in the network, because a
+PBFT network must be fully peered (all nodes must be directly
+connected). This setting is in the off-chain <a href="/docs/1.2/sysadmin_guide/configuring_sawtooth.html#validator-configuration-file">validator configuration
+file</a>.</p>
+
+<ol>
+  <li>
+    <p>Create the validator configuration file by copying the example file.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo cp</span> <span class="nt">-a</span> /etc/sawtooth/validator.toml.example /etc/sawtooth/validator.toml
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">sudo</code> to edit this file.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>vi /etc/sawtooth/validator.toml
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Locate the <code class="language-plaintext highlighter-rouge">peering</code> setting and make sure that it is set to
+<code class="language-plaintext highlighter-rouge">static</code> (the default).</p>
+  </li>
+  <li>
+    <p>Find the <code class="language-plaintext highlighter-rouge">peers</code> setting and enter the URLs for other validators on
+the network.</p>
+
+    <p>Use the format <code class="language-plaintext highlighter-rouge">tcp://{hostname}:{port}</code> for each peer. Specify
+multiple peers in a comma-separated list. For example:</p>
+
+    <div class="language-ini highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="py">peers</span> <span class="p">=</span> <span class="s">["tcp://node1:8800", "tcp://node2:8800", "tcp://node3:8800"]</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>This setting will take effect when the validator starts.</p>
+
+<blockquote>
+  <p><strong>Note</strong></p>
+
+  <p>For information about optional configuration settings, see <a href="/docs/1.2/sysadmin_guide/setting_up_sawtooth_network.html#changing-off-chain-settings-with-configuration-files">Off Chain
+Settings</a>.</p>
+</blockquote>
+
+<h3 id="step-5-start-sawtooth-on-the-first-node">Step 5. Start Sawtooth on the First Node</h3>
+
+<p>This step shows how to start all Sawtooth components: the validator,
+REST API, transaction processors, and consensus engine. Use a separate
+terminal window to start each component.</p>
+
+<ol>
+  <li>
+    <p>Start the validator with the following command.</p>
+
+    <p>Substitute your actual values for the component and network bind
+strings, public endpoint string, and peer list, as described in Ubuntu
+Prerequisites.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth sawtooth-validator <span class="se">\</span>
+<span class="go">--bind component:{component-bind-string} \
+--bind network:{network-bind-string} \
+--bind consensus:{consensus-bind-string} \
+--endpoint {public-endpoint-string} \
+--peers {peer-list}
+</span></code></pre></div>    </div>
+
+    <p>Specify multiple peers in a comma-separated list, as in this
+example:</p>
+
+    <blockquote>
+      <pre><code class="language-none">--peers tcp://203.0.113.0:8800,198.51.100.0:8800
+</code></pre>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Important</strong></p>
+
+      <p>For PBFT, specify all known peers in the initial network. (PBFT
+requires at least four nodes.) If you want to add another PBFT node
+later, see <a href="/docs/1.2/sysadmin_guide/pbft_adding_removing_node.html">Adding or Removing a PBFT
+Node</a>.</p>
+    </blockquote>
+
+    <p>The following example uses these values:</p>
+
+    <ul>
+      <li>
+        <p>component bind address <code class="language-plaintext highlighter-rouge">127.0.0.1:4004</code> (the default value)</p>
+      </li>
+      <li>
+        <p>network bind address and endpoint <code class="language-plaintext highlighter-rouge">192.0.2.0:8800</code> (a TEST-NET-1
+example address)</p>
+      </li>
+      <li>
+        <p>consensus bind address and endpoint <code class="language-plaintext highlighter-rouge">192.0.2.0:5050</code></p>
+      </li>
+      <li>
+        <p>three peers at the public endpoints <code class="language-plaintext highlighter-rouge">203.0.113.0:8800</code>,
+<code class="language-plaintext highlighter-rouge">203.0.113.1:8800</code>, and <code class="language-plaintext highlighter-rouge">203.0.113.2:8800</code>.</p>
+
+        <blockquote>
+          <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth sawtooth-validator <span class="se">\</span>
+<span class="go">--bind component:tcp://127.0.0.1:4004 \
+--bind network:tcp://192.0.2.0:8800 \
+--bind consensus:tcp://192.0.2.0:5050 \
+--endpoint tcp://192.0.2.0:8800 \
+--peers tcp://203.0.113.0:8800,tcp://203.0.113.1:8800,tcp://203.0.113.2:8800
+</span></code></pre></div>          </div>
+        </blockquote>
+      </li>
+    </ul>
+
+    <p>Leave this window open; the validator will continue to display
+logging output as it runs.</p>
+  </li>
+  <li>
+    <p>Open a separate terminal window and start the REST API.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth sawtooth-rest-api <span class="nt">-v</span>
+</code></pre></div>    </div>
+
+    <p>If necessary, use the <code class="language-plaintext highlighter-rouge">--connect</code> option to specify a non-default
+value for the validator's component bind address and port, as
+described in Ubuntu Prerequisites. The following example shows the default
+value:</p>
+
+    <blockquote>
+      <pre><code class="language-none">$ sudo -u sawtooth sawtooth-rest-api -v --connect 127.0.0.1:4004
+</code></pre>
+    </blockquote>
+  </li>
+  <li>
+    <p>Start the transaction processors. Open a separate terminal window to
+start each one.</p>
+
+    <p>As with the previous command, use the <code class="language-plaintext highlighter-rouge">--connect</code> option for each
+command, if necessary, to specify a non-default value for
+validator's component bind address and port.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth settings-tp <span class="nt">-v</span>
+</code></pre></div>    </div>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth intkey-tp-python <span class="nt">-v</span>
+</code></pre></div>    </div>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth xo-tp-python <span class="nt">-v</span>
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p>Note</p>
+
+      <p>The transaction processors for Integer Key (<code class="language-plaintext highlighter-rouge">intkey-tp-python</code>) and
+XO (<code class="language-plaintext highlighter-rouge">xo-tp-python</code>) are not required for a Sawtooth network, but are
+used for the other steps in this guide.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>(PoET only) Also start the PoET Validator Registry transaction
+processor in a separate terminal window.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth poet-validator-registry-tp <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Start the consensus engine in a separate terminal window.</p>
+
+    <blockquote>
+      <p>Note</p>
+
+      <p>Change the <code class="language-plaintext highlighter-rouge">--connect</code> option, if necessary, to specify a
+non-default value for validator's consensus bind address and port.</p>
+    </blockquote>
+
+    <ul>
+      <li>
+        <p>For PBFT:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth pbft-engine <span class="nt">-vv</span> <span class="nt">--connect</span> tcp://localhost:5050
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>For PoET:</p>
+
+        <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> sawtooth poet-engine <span class="nt">-vv</span> <span class="nt">--connect</span> tcp://localhost:5050
+</code></pre></div>        </div>
+      </li>
+    </ul>
+
+    <p>The terminal window displays log messages as the consensus engine
+connects to and registers with the validator. The output will be
+similar to this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">[2019-01-09 11:45:07.807 INFO     handlers] Consensus engine registered: ...
+
+DEBUG | {name:}:engine | Min: 0 -- Max: 0
+INFO  | {name:}:engine | Wait time: 0
+DEBUG | {name}::engine | Initializing block
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="step-6-test-the-first-node">Step 6. Test the First Node</h3>
+
+<p>Although the Sawtooth network is not fully functional until other nodes
+have joined the network, you can use any or all of the following
+commands to verify the REST API and check that the genesis block has
+been committed.</p>
+
+<ul>
+  <li>
+    <p>Confirm that the REST API is reachable.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl http://localhost:8008/blocks
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>The Sawtooth environment described this guide runs a local REST API
+on each node. For a node that is not running a local REST API,
+replace <code class="language-plaintext highlighter-rouge">localhost:8008</code> with the externally advertised IP address
+and port.</p>
+    </blockquote>
+
+    <p>You should see a JSON response that is similar to this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">{
+  "data": [
+    {
+      "batches": [
+        {
+          "header": {
+            "signer_public_key": . . .
+</span></code></pre></div>    </div>
+
+    <p>If not, check the status of the REST API service and restart it, if
+necessary.</p>
+  </li>
+  <li>
+    <p>Check the list of blocks on the blockchain.</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>sawtooth block list
+</code></pre></div>    </div>
+
+    <p>For the first node on a network, this list will contain only a few
+blocks. If this node has joined an existing network, the block list
+could be quite long. In both cases, the list should end with output
+that resembles this example:</p>
+
+    <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER
+</span><span class="c">.
+.
+.
+</span><span class="go">2    f40b90d06b4a9074af2ab09e0187223da7466be75ec0f472f2edd5f22960d76e402e6c07c90b7816374891d698310dd25d9b88dce7dbcba8219d9f7c9cae1861  3     3     02e56e...
+1    4d7b3a2e6411e5462d94208a5bb83b6c7652fa6f4c2ada1aa98cabb0be34af9d28cf3da0f8ccf414aac2230179becade7cdabbd0976c4846990f29e1f96000d6  1     1     034aad...
+0    0fb3ebf6fdc5eef8af600eccc8d1aeb3d2488992e17c124b03083f3202e3e6b9182e78fef696f5a368844da2a81845df7c3ba4ad940cee5ca328e38a0f0e7aa0  3     11    034aad...
+</span></code></pre></div>    </div>
+
+    <p>Block 0 is the genesis block. The
+other two blocks contain the initial transactions for on-chain
+settings, such as setting the consensus algorithm.</p>
+  </li>
+  <li>
+    <p>(PBFT only) Ensure that the on-chain setting
+<code class="language-plaintext highlighter-rouge">sawtooth.consensus.pbft.members</code> lists the validator public keys of
+all PBFT member nodes on the network.</p>
+
+    <p>a.  Connect to the first node (the one that created the genesis
+    block).</p>
+
+    <p>b.  Display the on-chain settings.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+$ sawtooth settings list
+```
+</code></pre></div>    </div>
+
+    <p>c.  In the output, look for <code class="language-plaintext highlighter-rouge">sawtooth.consensus.pbft.members</code> and
+    verify that it includes the public key for each node.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>``` console
+sawtooth.consensus.pbft.members=["03e27504580fa15...
+```
+
+
+&gt; **Tip**
+&gt;
+&gt; You can use the `sawset proposal create` command to change this
+&gt; setting. For more information, [Adding or Removing a PBFT
+&gt; Node](/docs/1.2/sysadmin_guide/pbft_adding_removing_node.html).
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="install-second-val-ubuntu-label">Step 7: Start the Other Nodes</h3>
+
+<p>After confirming basic functionality on the first node, start Sawtooth
+on all other nodes in the initial network.</p>
+
+<p>Use the procedure in <a href="#step-5-start-sawtooth-on-the-first-node">Step 5</a>.</p>
+
+<blockquote>
+  <p><strong>Important</strong></p>
+
+  <p>Be careful to specify the correct values for the component and network
+bind address, endpoint, and peers settings. Incorrect values could cause
+the network to fail.</p>
+
+  <p>Start the same transaction processors that are running on the first
+node. For example, if you chose not to start <code class="language-plaintext highlighter-rouge">intkey-tp-python</code> and
+<code class="language-plaintext highlighter-rouge">xo-tp-python</code> on the first node, do not start them on the other nodes.</p>
+</blockquote>
+
+<p>When each node's validator fully starts, it will peer with the other
+running nodes.</p>
+
+<h1 id="confirm-nw-funct-ubuntu-label">Step 8: Confirm Network Functionality</h1>
+
+<p>For the remaining steps, multiple nodes in the network must be running.</p>
+
+<blockquote>
+  <ul>
+    <li>PBFT requires at least four nodes.</li>
+    <li>PoET requires at least three nodes.</li>
+  </ul>
+</blockquote>
+
+<ol>
+  <li>
+    <p>To check whether peering has occurred on the network, submit a peers
+query to the REST API on the first node.</p>
+
+    <p>Open a terminal window on the first node and run the following
+command.</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl http://localhost:8008/peers
+</code></pre></div>      </div>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Note</strong></p>
+
+      <p>This environment runs a local REST API on each node. For a node that
+is not running a local REST API, you must replace <code class="language-plaintext highlighter-rouge">localhost:8008</code>
+with the externally advertised IP address and port. (Non-default
+values are set with the <code class="language-plaintext highlighter-rouge">--bind</code> option when starting the REST API.)</p>
+    </blockquote>
+
+    <p>If this query returns a 503 error, the nodes have not yet peered
+with the Sawtooth network. Repeat the query until you see output
+that resembles the following example:</p>
+
+    <blockquote>
+      <div class="language-console highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go">{
+    "data": [
+    "tcp://validator-1:8800",
+  ],
+  "link": "http://rest-api:8008/peers"
+}
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>Run the following Sawtooth commands on a node to show the other
+nodes on the network.</p>
+
+    <p>a.  Run <code class="language-plaintext highlighter-rouge">sawtooth peer list</code> to show the peers of a particular node.
+b.  Run <code class="language-plaintext highlighter-rouge">sawnet peers list</code> to display a complete graph of peers on
+    the network (available in Sawtooth release 1.1 and later).</p>
+  </li>
+  <li>
+    <p>Verify that transactions are being processed correctly.</p>
+
+    <p>a.  Submit a transaction to the REST API on the first node. This
+    example sets a key named <code class="language-plaintext highlighter-rouge">MyKey</code> to the value 999.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Run the following command in a terminal window on the first
+node.
+
+``` console
+$ intkey set MyKey 999
+```
+</code></pre></div>    </div>
+
+    <p>b.  Watch for this transaction to appear on the other node. The
+    following command requests the value of <code class="language-plaintext highlighter-rouge">MyKey</code> from the REST
+    API on the that node.</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Open a terminal window on another node to run the following
+command.
+
+``` console
+$ intkey show MyKey
+MyKey: 999
+```
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="configure-txn-procs-ubuntu-label">Step 9. (Optional) Configure the Allowed Transaction Types</h3>
+
+<p>By default, a validator accepts transactions from any transaction
+processor. However, Sawtooth allows you to limit the types of
+transactions that can be submitted.</p>
+
+<p>For this procedure, see <a href="/docs/1.2/sysadmin_guide/setting_allowed_txns.html">Setting Allowed
+Transactions</a>.</p>
+
+<!--
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+
+                    </div>
+                </main>
+                <div id="right-sidebar-col" class="d-none d-xl-block col-xl-2 offset-xl-10 sidebar-col">
+                    <div id="right-sidebar" class="sidebar"></div>
+                </div>
+            </div>
+        </div>
+<!--
+  Copyright 2024 Bitwise IO, Inc.
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<div class="card-footer text-muted" id="footer">
+  <img src="/assets/sawtooth_symbol.svg" height="36">
+  <div>
+      <a href="https://github.com/splintercommunity/sawtooth-core" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+  <a> Copyright © 2018-2024 contributors to Sawtooth</a>
+</div>
+
+    </body>
+<!--
+  Copyright 2018-2020 Cargill Incorporated
+  Licensed under Creative Commons Attribution 4.0 International License
+  https://creativecommons.org/licenses/by/4.0/
+-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="/scripts/generateRightSidebar.js"></script>
+<script src="/scripts/manPage.js"></script>
+<script src="/scripts/activeLinks.js"></script>
+
+<script>
+    setActiveLinks();
+    generateManPage();
+    generateRightSidebar();
+</script>
+
+</html>
